@@ -1,22 +1,35 @@
-<html>
-<head>
-	<title>COP 4331 - GROUP 16 - LAMP Stack Demo</title>
-	<script type="text/javascript" src="js/md5.js"></script>
-	<script type="text/javascript" src="js/code.js"></script>
-    <link href="css/styles.css" rel="stylesheet">	
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-</head>
-<body>
-
-<h1 id="title">COP 4331 - GROUP 16 - LAMP Stack Demo</h1>
-
-<div id="loginDiv">
-	<span id="inner-title">LOGIN</span>
-	<input type="text" id="loginName" placeholder="Username" /><br />
-	<input type="password" id="loginPassword" placeholder="Password"/><br />
-	<button type="button" id="loginButton" class="buttons" onclick="doLogin();"> Do It </button>
-	<span id="loginResult"></span>
-</div>
-
-</body>
+<!doctype html>
+<html lang="en">
+    <head>
+        <title> BeautifulDay </title> 
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel = "stylesheet" href ="css/bootstrap.css">
+        <script type="text/js" src="js/code.js"></script>
+    </head>
+    <body>
+    
+    <div class = "container-sm my-5">
+        <div align = center class="card bg-yellow">
+        <h1 class="my-5 cardColor">Beautiful Day</h1>
+        </div>
+        <div class="card from-control form-control-lg">
+            <div class="input-group-lg" align = center>      
+        <input class= "my-3 ms-5 me-5 fw-bold" type="text" id="loginName" placeholder="Username" /><br />
+        <input class= "my-3 ms-5 me-5 fw-bold" type="password" id="loginPassword" placeholder="Password"/><br />
+        </div> 
+        <button  type ="button" class="buttons btn btn-outline-primary btn-lg ms-6 me-5 my-3 fw-bold" onclick="doLogin();">Log In</button>
+        <button id="regButton" type ="button" class="buttons btn btn-outline-warning btn-lg ms-6 me-5 my-3 fw-bold">Register</button>
+        <script type="text/javascript">
+        document.getElementById("regButton").onclick = function () {
+        location.href = "html/register.html";
+        };
+</script>    
+        <span id="loginResult"></span>
+        </div>
+    </div>    
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src = "js/bootstrap.js"></script>
+    </body>
 </html>
