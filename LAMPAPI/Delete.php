@@ -1,24 +1,32 @@
 <?php
 	$inData = getRequestInfo();
 	
-	$color = $inData["color"];
-	$userId = $inData["userId"];
+	// user info
+	$id = 0;
+	$firstName = "";
+	$lastName = "";
 
-	/*$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "COP4331");
+	// connect
+	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "COP4331");
 	if ($conn->connect_error) 
 	{
 		returnWithError( $conn->connect_error );
 	} 
 	else
 	{
-		$sql = "insert into Colors (UserId,Name) VALUES (" . $userId . ",'" . $color . "')";
+		$sql = "DELETE FROM Users WHERE firstName='" . $inData["firstName"]."' or lastName='" .$inData["lastName"]."'";
+
 		if( $result = $conn->query($sql) != TRUE )
 		{
 			returnWithError( $conn->error );
 		}
+		else
+		{
+			echo "name was deleted\n";
+		}
 		$conn->close();
 	}
-	*/
+	
 	returnWithError("");
 	
 	function getRequestInfo()
