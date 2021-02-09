@@ -5,14 +5,15 @@
 	$searchResults = "";
 	$searchCount = 0;
 
-	$conn = new mysqli("localhost", "group16", "WeAreGroup16", "COP4331");
-	if ($conn->connect_error) 
+	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "COP4331");
+	if ($conn->connect_error)
 	{
 		returnWithError( $conn->connect_error );
 	} 
 	else
 	{
-		$sql = "select Name from Colors where Name like '%" . $inData["search"] . "%' and UserID=" . $inData["userId"];
+		$sql = "SELECT FirstName, LastName FROM Contacts WHERE FirstName LIKE '%". $inData["search"] . "%' AND UserID=" . $inData["userId"];
+
 		$result = $conn->query($sql);
 		if ($result->num_rows > 0)
 		{
@@ -23,7 +24,7 @@
 					$searchResults .= ",";
 				}
 				$searchCount++;
-				$searchResults .= '"' . $row["Name"] . '"';
+				$searchResults .= '"' . $row["FirstName"] . '"';
 			}
 		}
 		else

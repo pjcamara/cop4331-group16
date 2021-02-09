@@ -6,7 +6,7 @@
 	$firstName = "";
 	$lastName = "";
 
-	$conn = new mysqli("localhost", "group16", "WeAreGroup16", "COP4331");
+	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "COP4331");
 	if ($conn->connect_error) 
 	{
 		returnWithError( $conn->connect_error );
@@ -14,6 +14,7 @@
 	else
 	{
 		$sql = "SELECT ID,firstName,lastName FROM Users where Login='" . $inData["login"] . "' and Password='" . $inData["password"] . "'";
+		
 		$result = $conn->query($sql);
 		if ($result->num_rows > 0)
 		{
