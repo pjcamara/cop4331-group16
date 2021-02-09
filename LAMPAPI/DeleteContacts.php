@@ -1,10 +1,5 @@
 <?php
 	$inData = getRequestInfo();
-	
-	// user info
-	$id = 0;
-	$firstName = "";
-	$lastName = "";
 
 	// connect
 	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "COP4331");
@@ -14,16 +9,13 @@
 	} 
 	else
 	{
-		$sql = "DELETE FROM Users WHERE firstName='" . $inData["firstName"]."' or lastName='" .$inData["lastName"]."'";
+		$sql = "DELETE FROM Contacts WHERE FirstName = '" . $inData["FirstName"] . "' OR LastName = '" . $inData["LastName"] . "'";
 
 		if( $result = $conn->query($sql) != TRUE )
 		{
 			returnWithError( $conn->error );
 		}
-		else
-		{
-			echo "name was deleted\n";
-		}
+
 		$conn->close();
 	}
 	

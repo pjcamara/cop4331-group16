@@ -1,40 +1,32 @@
 <?php
 	$inData = getRequestInfo();
 	
-	// confirstname : contact first name
-	// conlastname : contact last name
-	$password = $inData["password"];
-	$contactid = $inData["contactid"];
+	$phonenumber = $inData["phonenumber"];
+	$userid = $inData["userid"];
 	$confirstname = $inData["confirstname"];
 	$conlastname = $inData["conlastname"];
-	//$login = $inData["login"];
 	
 	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "COP4331");
-	//echo "hullo\n";
+
 	if ($conn->connect_error) 
 	{
 		returnWithError( $conn->connect_error );
 	} 
 	else
 	{
-		if($password)
+		if($phonenumber)
 		{
-			$sql = "UPDATE Contact SET Password= '$password' WHERE ID= $contactid";
-			//echo "password updated\n";
+			$sql = "UPDATE Contacts SET PhoneNumber = '$phonenumber' WHERE ID = $userid";
 		}
 		else if($confirstname)
 		{
-			$sql = "UPDATE Contact SET firstName= '$confirstname' WHERE ID= $contactid";
+			$sql = "UPDATE Contacts SET firstName= '$confirstname' WHERE ID= $userid";
 		}
 		else if($conlastname)
 		{
-			$sql = "UPDATE Contact SET lastName= '$conlastname' WHERE ID= $contactid";
+			$sql = "UPDATE Contacts SET lastName= '$conlastname' WHERE ID= $userid";
 		}
-		else if($login)
-		{
-			$sql = "UPDATE Contact SET login= '$login' WHERE ID= $contactid";
-		}
-		
+
 		if( $result = $conn->query($sql) != TRUE )
 		{
 			returnWithError( $conn->error );
