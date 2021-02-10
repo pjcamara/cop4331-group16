@@ -102,13 +102,16 @@ function doLogout()
 	window.location.href = "index.html";
 }
 
-function addColor()
+function addContact()
 {
-	var newColor = document.getElementById("colorText").value;
-	document.getElementById("colorAddResult").innerHTML = "";
+	var phoneNum = document.getElementById("phoneNum").value;
+	var newFName = document.getElementById("fistName").value;
+	new newLName = document.getElementById("lastName").value;
+
+	document.getElementById("contactAddResult").innerHTML = "";
 	
-	var jsonPayload = '{"color" : "' + newColor + '", "userId" : ' + userId + '}';
-	var url = urlBase + '/AddColor.' + extension;
+	var jsonPayload = '{"FirstName" : "' + newFName + '", "userId" : ' + userId + ', "LastName" : "' + newLName + '", "PhoneNumber" : "' + phoneNum + '"}';
+	var url = urlBase + '/AddContacts.' + extension;
 	
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -119,14 +122,14 @@ function addColor()
 		{
 			if (this.readyState == 4 && this.status == 200) 
 			{
-				document.getElementById("colorAddResult").innerHTML = "Color has been added";
+				document.getElementById("contactAddResult").innerHTML = "Contact has been added";
 			}
 		};
 		xhr.send(jsonPayload);
 	}
 	catch(err)
 	{
-		document.getElementById("colorAddResult").innerHTML = err.message;
+		document.getElementById("contactAddResult").innerHTML = err.message;
 	}
 	
 }
@@ -136,9 +139,9 @@ function searchContact()
 	var srch = document.getElementById("searchText").value;
 	document.getElementById("colorSearchResult").innerHTML = "";
 	
-	var colorList = "";
+	var contactList = "";
 	
-	var jsonPayload = '{"search" : "' + srch + '","userId" : ' + userId + '}';
+	var jsonPayload = '{"Search" : "' + srch + '","UserID" : ' + userId + '}';
 	var url = urlBase + '/SearchContacts.' + extension;
 	
 	var xhr = new XMLHttpRequest();
@@ -155,7 +158,7 @@ function searchContact()
 				
 				for( var i=0; i<jsonObject.results.length; i++ )
 				{
-					colorList += jsonObject.results[i];
+					contactList += jsonObject.results[i];
 					if( i < jsonObject.results.length - 1 )
 					{
 						contactList += "<br />\r\n";
