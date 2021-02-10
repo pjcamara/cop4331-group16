@@ -9,7 +9,7 @@
 	} 
 	else
 	{
-		$sql = "DELETE FROM Contacts WHERE FirstName = '" . $inData["FirstName"] . "' OR LastName = '" . $inData["LastName"] . "'";
+		$sql = "DELETE FROM Contacts WHERE UserID = " . $inData["UserID"] . " AND FirstName = '" . $inData["FirstName"] . "' OR UserID = " . $inData["UserID"] . " AND LastName = '" . $inData["LastName"] . "'";
 
 		if( $result = $conn->query($sql) != TRUE )
 		{
