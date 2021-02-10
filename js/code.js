@@ -176,3 +176,17 @@ function searchContact()
 	}
 	
 }
+
+function deleteContact()
+{
+	var fName = document.getElementById("contactfName").value;
+	var lName = document.getElementById("contactlName").value;
+
+	var jsonPayload = '{"FirstName" : "' + fName + '","UserID" : ' + userId + ', "LastName" : "' + lName + '"}';
+	var url = urlBase + '/DeleteContacts.' + extension;
+
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
+}
