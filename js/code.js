@@ -202,7 +202,37 @@ function deleteContact()
 	}
 	catch(err)
 	{
-		document.getElementById("contactAddResult").innerHTML = err.message;
+		document.getElementById("contactDeleteResult").innerHTML = err.message;
 	}
 
+}
+
+function updateContact()
+{
+	var phoneNum = document.getElementById("phoneNum").value;
+	var newFName = document.getElementById("fistName").value;
+	new newLName = document.getElementById("lastName").value;
+
+	var jsonPayload = '{"FirstName" : "' + newFName + '", "userId" : ' + userId + ', "LastName" : "' + newLName + '", "PhoneNumber" : "' + phoneNum + '"}';
+	var url = urlBase + '/AddContacts.' + extension;
+
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
+	try
+	{
+		xhr.onreadystatechange = function() 
+		{
+			if (this.readyState == 4 && this.status == 200) 
+			{
+				document.getElementById("contactUpdateResult").innerHTML = "Contact has been updated";
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch(err)
+	{
+		document.getElementById("contactUpdateResult").innerHTML = err.message;
+	}
 }
