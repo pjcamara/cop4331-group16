@@ -237,7 +237,7 @@ function updateContact()
 	}
 }
 
-function registerUser()
+function doRegister()
 {
 	var newFName = document.getElementById("registerFirstName").value;
 	new newLName = document.getElementById("registerlastName").value;
