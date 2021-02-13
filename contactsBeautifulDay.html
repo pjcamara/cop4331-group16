@@ -50,7 +50,7 @@
 
 	<body style="background-color: silver;">  <!-- actually what user sees -->
 
-	<h1 class="text-center">Beatiful Day Contact App</h1>
+	<h1 class="text-center">Beautiful Day Contact App</h1>
 	<div class="container vertical-center">
 <!--
 		<div class="row">
@@ -69,14 +69,16 @@
 
 	<div id="accessUIDiv">
 		<input type="text" id="searchText" placeholder="Contact To Search For"/>
-		<button type="button" id="searchColorButton" class="buttons" onclick="searchColor();"> Search Contact </button><br />
-		<span id="colorSearchResult"></span>
-		<p id="colorList">
+		<button type="button" id="searchColorButton" class="buttons" onclick="searchContact();"> Search Contact </button><br />
+		<span id="contactSearchResult"></span>
+		<p id="contactList">
 		</p><br />
 
-		<input type="text" id="colorText" placeholder="Contact To Add">
-		<button type="button" id="addColorButton" class="buttons" onclick="addColor();"> Add Contact </button><br />
-		<span id="colorAddResult"></span>
+		<input type="text" id="firstName" placeholder="First Name">
+		<input type="text" id="lastName" placeholder="Last Name">
+		<input type="text" id="phoneNum" placeholder="Phone Number">
+		<button type="button" id="addContactButton" class="buttons" onclick="addContact();"> Add Contact </button><br />
+		<span id="contactAddResult"></span>
 	</div>
 
 	</body>
