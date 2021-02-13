@@ -43,7 +43,7 @@ function doLogin()
 
 		saveCookie();
 	
-		window.location.href = "color.html";
+		window.location.href = "contactsBeautifulDay.html";
 	}
 	catch(err)
 	{
@@ -105,7 +105,7 @@ function doLogout()
 function addContact()
 {
 	var phoneNum = document.getElementById("phoneNum").value;
-	var newFName = document.getElementById("fistName").value;
+	var newFName = document.getElementById("firstName").value;
 	new newLName = document.getElementById("lastName").value;
 
 	document.getElementById("contactAddResult").innerHTML = "";
@@ -210,11 +210,11 @@ function deleteContact()
 function updateContact()
 {
 	var phoneNum = document.getElementById("phoneNum").value;
-	var newFName = document.getElementById("fistName").value;
+	var newFName = document.getElementById("firstName").value;
 	new newLName = document.getElementById("lastName").value;
 
 	var jsonPayload = '{"FirstName" : "' + newFName + '", "userId" : ' + userId + ', "LastName" : "' + newLName + '", "PhoneNumber" : "' + phoneNum + '"}';
-	var url = urlBase + '/AddContacts.' + extension;
+	var url = urlBase + '/UpdateContacts.' + extension;
 
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -234,5 +234,36 @@ function updateContact()
 	catch(err)
 	{
 		document.getElementById("contactUpdateResult").innerHTML = err.message;
+	}
+}
+
+function registerUser()
+{
+	var newFName = document.getElementById("registerFirstName").value;
+	new newLName = document.getElementById("registerlastName").value;
+	var login = document.getElementById("registerName").value;
+	var password = document.getElementById("registerPassword").value;
+
+	var jsonPayload = '{"FirstName" : "' + newFName + '", "Login" : ' + login + ', "LastName" : "' + newLName + '", "Password" : "' + password + '"}';
+	var url = urlBase + '/AddUsers.' + extension;
+
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
+	try
+	{
+		xhr.onreadystatechange = function() 
+		{
+			if (this.readyState == 4 && this.status == 200) 
+			{
+				document.getElementById("registerResult").innerHTML = "Succesfully Registered!";
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch(err)
+	{
+		document.getElementById("registerResult").innerHTML = err.message;
 	}
 }
