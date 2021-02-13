@@ -106,7 +106,7 @@ function addContact()
 {
 	var phoneNum = document.getElementById("phoneNum").value;
 	var newFName = document.getElementById("firstName").value;
-	new newLName = document.getElementById("lastName").value;
+	var newLName = document.getElementById("lastName").value;
 
 	document.getElementById("contactAddResult").innerHTML = "";
 	
@@ -211,7 +211,7 @@ function updateContact()
 {
 	var phoneNum = document.getElementById("phoneNum").value;
 	var newFName = document.getElementById("firstName").value;
-	new newLName = document.getElementById("lastName").value;
+	var newLName = document.getElementById("lastName").value;
 
 	var jsonPayload = '{"FirstName" : "' + newFName + '", "userId" : ' + userId + ', "LastName" : "' + newLName + '", "PhoneNumber" : "' + phoneNum + '"}';
 	var url = urlBase + '/UpdateContacts.' + extension;
@@ -240,7 +240,7 @@ function updateContact()
 function doRegister()
 {
 	var newFName = document.getElementById("registerFirstName").value;
-	new newLName = document.getElementById("registerlastName").value;
+	var newLName = document.getElementById("registerlastName").value;
 	var login = document.getElementById("registerName").value;
 	var password = document.getElementById("registerPassword").value;
 
