@@ -1,19 +1,21 @@
-body 
+/* css - Cascading Style Sheet */
+/* Presentation of webpage */
+body
 {
-    background-color: #707070;
+    background-color: silver;
 }
 
-#title 
+#title /* object: <title>COP 4331 LAMP Stack Demo</title> */
 {
     font-size: 40px;
     width: 100%;
-    margin: 2% 5%;
+    margin: auto;
     text-align: center;
     font-family: 'Ubuntu', sans-serif;
     color: #FFFFFF;
 }
 
-#loginDiv
+#loginDiv /* object: <div id="loginDiv"> ""*/
 {
     font-size: 30px;
     width: 70%;
@@ -22,7 +24,7 @@ body
     background-color: #b2b2b2;
 }
 
-#loggedInDiv
+#loggedInDiv /*object*/
 {
     font-size: 30px;
     width: 70%;
@@ -31,7 +33,7 @@ body
     background-color: #b2b2b2;
 }
 
-#accessUIDiv
+#accessUIDiv /*object*/
 {
     font-size: 30px;
     width: 70%;
@@ -40,19 +42,20 @@ body
     background-color: #b2b2b2;
 }
 
-.buttons
+.buttons /*class*/
 {
     font-size: 30px;
     border-radius: 25px;
     width: 50%;
-    margin-left: 25%;
+    margin-left: auto;
     font-family: 'Ubuntu', sans-serif;
 }
 
-.buttons:hover{
-    background-color: #00d5124f;
-    color: #FFFFFF;
-    opacity: 50%;
+.buttons:hover /*class*/
+{
+    background-color: #525252;
+    color: #000;
+    opacity: 100%;
 }
 
 #loginName
@@ -72,11 +75,32 @@ body
 	font-size: 30px;
 }
 
+#registerName
+{
+	font-size: 30px;
+}
+#registerPassword
+{
+	font-size: 30px;
+}
+#registerFirstName
+{
+	font-size: 30px;
+}
+#registerLastName
+{
+	font-size: 30px;
+}
+#colorText
+{
+	font-size: 30px;
+}
+
 input[type="text"],input[type="password"]{
     border-radius: 25px;
     text-align: center;
     width: 80%;
-    margin-left: 10%;
+    margin-left: auto;
     margin-bottom: 2%;
     font-family: 'Ubuntu', sans-serif;
 }
@@ -112,7 +136,7 @@ input[type="text"],input[type="password"]{
 
 #logoutButton{
     width: 20%;
-    margin-left: 40%;
+    margin-left: auto;
 }
 
 select{
