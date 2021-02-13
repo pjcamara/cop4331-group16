@@ -240,7 +240,7 @@ function updateContact()
 function doRegister()
 {
 	var newFName = document.getElementById("registerFirstName").value;
-	var newLName = document.getElementById("registerlastName").value;
+	var newLName = document.getElementById("registerLastName").value;
 	var login = document.getElementById("registerName").value;
 	var password = document.getElementById("registerPassword").value;
 
