@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en"> <!-- HTML is the presentation layer of what we see -->
+
+	<head> <!-- import javascript.js and styles.css -->
+		<title>Update Contact</title>
+		<meta charset="utf-8"> <!-- charset attribute specifies the character encoding for the HTML document. -->
+		<meta name="viewport" content="width=device-width, initial-scale=1"> <!-- gives browser instructions on how to control the page's dimensions and scaling. -->
+		<link rel="stylesheet" href="css/bootstrap.css"> <!-- import bootstrap -->
+		<script type="text/javascript" src="js/md5.js"></script>
+		<script type="text/javascript" src="js/code.js"></script>
+
+		<link href="css/styles.css" rel="stylesheet">
+  	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+
+		<!-- used for carousel and formating navigation buttons-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+		<style>
+		[class*="container"] /*container settings */
+		{
+			padding: 1rem; /* inner margins */
+			background-color: #000; /* black */
+			border: 0px solid #ff0000; /* red */
+			color: #fff; /* text color red*/
+			text-align: center;
+		}
+		[class*="col"] /* column settings */
+		{
+			padding: 0rem;
+			background-color: #33b5e5; /* teal */
+			border: 0px solid #fff; /* white */
+			color: #ff00df; /* text color pink*/
+			text-align: center;
+		}
+		[class*="row"] /* row settings */
+		{
+			padding: 0rem;
+			background-color: #09734b;  /* green */
+			border: 0px solid #c9ab00; /* gold */
+			color: #fff; /* text color white*/
+			text-align: center;
+		}
+		</style>
+	</head>
+
+	<body style="background-color: silver;">  <!-- actually what user sees -->
+
+		<h1 class="text-center">Beautiful Day Contact App</h1>
+		<div class="container vertical-center">
+
+			<div class="row">
+				<div class="col">
+					<a href="contactsBeautifulDay.html" class="btn btn-dark btn-lg btn-block rounded-0">Back</a>
+				</div>
+				<div class="col">
+					<a href="index.html" class="btn btn-dark btn-lg btn-block rounded-0">Home</a>
+				</div>
+			</div>
+
+
+			<h1 class="text-center">Update Contact</h1>
+			<input type="text" id="firstName" placeholder="First Name" /><br/>
+			<input type="text" id="lastName" placeholder="Last Name"/><br />
+			<input type="text" id="phoneNum" placeholder="Phone Number"/><br />
+			<button type="button" id="updateContactButton" class="buttons" onclick="updateContact();"> Update Contact </button>
+			<span id="contactUpdateResult"></span>
+		</div>
+
+	</body>
+</html>
