@@ -137,13 +137,35 @@ function addContact()
 function searchContact()
 {
 	var srch = document.getElementById("searchText").value;
-	document.getElementById("colorSearchResult").innerHTML = "";
+	document.getElementById("contactSearchResult").innerHTML = "";
 	
 	var contactList = "";
-	
+	var parent = document.getElementById("contactList");
+
 	var jsonPayload = '{"Search" : "' + srch + '","UserID" : ' + userId + '}';
 	var url = urlBase + '/SearchContacts.' + extension;
 	
+	
+	var first = document.createElement("input");
+	first.type = "text";
+	first.id ="firstName";
+	var last = document.createElement("input");
+	last.type = "text";
+	last.id = "lastName";
+	var phone = document.createElement("input");
+	phone.type = "text";
+	phone.id = "phoneNum";
+	var editbtn = document.createElement("button");
+	editbtn.type = "button";
+	editbtn.onclick ="updateContact();";
+	editbtn.value = "Edit";
+	editbtn.className = "buttons";
+	var deletebtn = document.createElement("button");
+	deletebtn.type = "button";
+	deletebtn.onclick ="deleteContact();";
+	deletebtn.value = "Delete";
+	deletebtn.className = "buttons";
+
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
@@ -158,14 +180,24 @@ function searchContact()
 				
 				for( var i=0; i<jsonObject.results.length; i++ )
 				{
-					contactList += jsonObject.results[i];
+					contactList += parent.append(first);
+					contactList += parent.append(last);
+					contactList += parent.append(phone);
+					contactList += parent.append(editbtn);
+					contactList += parent.append(deletebtn);
+					first.value = jsonObject.results[i]['FirstName'];
+					last.value = jsonObject.results[i]['LastName'];
+					phone.value = jsonObject.results[i]['PhoneNumber'];
+					
 					if( i < jsonObject.results.length - 1 )
-					{
+					{						
 						contactList += "<br />\r\n";
 					}
 				}
 				
 				document.getElementsByTagName("p")[0].innerHTML = contactList;
+				
+				
 			}
 		};
 		xhr.send(jsonPayload);
@@ -179,8 +211,8 @@ function searchContact()
 
 function deleteContact()
 {
-	var fName = document.getElementById("contactfName").value;
-	var lName = document.getElementById("contactlName").value;
+	var fName = document.getElementById("firstName").value;
+	var lName = document.getElementById("lastName").value;
 
 	var jsonPayload = '{"FirstName" : "' + fName + '","UserID" : ' + userId + ', "LastName" : "' + lName + '"}';
 	var url = urlBase + '/DeleteContacts.' + extension;
