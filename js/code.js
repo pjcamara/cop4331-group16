@@ -110,7 +110,8 @@ function addContact()
 
 	document.getElementById("contactAddResult").innerHTML = "";
 	
-	var jsonPayload = '{"FirstName" : "' + newFName + '", "userId" : ' + userId + ', "LastName" : "' + newLName + '", "PhoneNumber" : "' + phoneNum + '"}';
+	var jsonPayload = '{"FirstName" : "' + newFName + '" , "LastName" : "' + 
+	newLName + '" , "PhoneNumber" : "' + phoneNum + '" , "UserID" : ' + userId + '}';
 	var url = urlBase + '/AddContacts.' + extension;
 	
 	var xhr = new XMLHttpRequest();
@@ -144,27 +145,6 @@ function searchContact()
 
 	var jsonPayload = '{"Search" : "' + srch + '","UserID" : ' + userId + '}';
 	var url = urlBase + '/SearchContacts.' + extension;
-	
-	
-	var first = document.createElement("input");
-	first.type = "text";
-	first.id ="firstName";
-	var last = document.createElement("input");
-	last.type = "text";
-	last.id = "lastName";
-	var phone = document.createElement("input");
-	phone.type = "text";
-	phone.id = "phoneNum";
-	var editbtn = document.createElement("button");
-	editbtn.type = "button";
-	editbtn.onclick ="updateContact();";
-	editbtn.value = "Edit";
-	editbtn.className = "buttons";
-	var deletebtn = document.createElement("button");
-	deletebtn.type = "button";
-	deletebtn.onclick ="deleteContact();";
-	deletebtn.value = "Delete";
-	deletebtn.className = "buttons";
 
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -180,17 +160,9 @@ function searchContact()
 				
 				for( var i=0; i<jsonObject.results.length; i++ )
 				{
-					contactList += parent.append(first);
-					contactList += parent.append(last);
-					contactList += parent.append(phone);
-					contactList += parent.append(editbtn);
-					contactList += parent.append(deletebtn);
-					first.value = jsonObject.results[i]['FirstName'];
-					last.value = jsonObject.results[i]['LastName'];
-					phone.value = jsonObject.results[i]['PhoneNumber'];
-					
+					contactList += jsonObject.results[i];
 					if( i < jsonObject.results.length - 1 )
-					{						
+					{
 						contactList += "<br />\r\n";
 					}
 				}
@@ -245,7 +217,7 @@ function updateContact()
 	var newFName = document.getElementById("firstName").value;
 	var newLName = document.getElementById("lastName").value;
 
-	var jsonPayload = '{"FirstName" : "' + newFName + '", "userId" : ' + userId + ', "LastName" : "' + newLName + '", "PhoneNumber" : "' + phoneNum + '"}';
+	var jsonPayload = '{"FirstName" : "' + newFName + '", "userID" : ' + userId + ', "LastName" : "' + newLName + '", "PhoneNumber" : "' + phoneNum + '"}';
 	var url = urlBase + '/UpdateContacts.' + extension;
 
 	var xhr = new XMLHttpRequest();
@@ -275,8 +247,11 @@ function doRegister()
 	var newLName = document.getElementById("registerLastName").value;
 	var login = document.getElementById("registerName").value;
 	var password = document.getElementById("registerPassword").value;
+ 
+ document.getElementById("registerResult").innerHTML = "";
 
-	var jsonPayload = '{"FirstName" : "' + newFName + '", "Login" : ' + login + ', "LastName" : "' + newLName + '", "Password" : "' + password + '"}';
+	var jsonPayload = '{"FirstName" : "' + newFName + '" , "LastName" : "' + 
+	newLName + '" , "Login" : "' + login + '" , "Password" : "' + password + '"}';
 	var url = urlBase + '/AddUsers.' + extension;
 
 	var xhr = new XMLHttpRequest();
