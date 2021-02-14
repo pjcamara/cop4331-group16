@@ -186,7 +186,8 @@ function deleteContact()
 	var fName = document.getElementById("firstName").value;
 	var lName = document.getElementById("lastName").value;
 
-	var jsonPayload = '{"FirstName" : "' + fName + '","UserID" : ' + userId + ', "LastName" : "' + lName + '"}';
+	var jsonPayload = '{"FirstName" : "' + newFName + '" , "LastName" : "' + 
+	newLName + '" , "UserID" : ' + userId + '}';
 	var url = urlBase + '/DeleteContacts.' + extension;
 
 	var xhr = new XMLHttpRequest();
@@ -217,7 +218,8 @@ function updateContact()
 	var newFName = document.getElementById("firstName").value;
 	var newLName = document.getElementById("lastName").value;
 
-	var jsonPayload = '{"FirstName" : "' + newFName + '", "userID" : ' + userId + ', "LastName" : "' + newLName + '", "PhoneNumber" : "' + phoneNum + '"}';
+	var jsonPayload = '{"FirstName" : "' + newFName + '" , "LastName" : "' + 
+	newLName + '" , "PhoneNumber" : "' + phoneNum + '" , "UserID" : ' + userId + '}';
 	var url = urlBase + '/UpdateContacts.' + extension;
 
 	var xhr = new XMLHttpRequest();
