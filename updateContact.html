@@ -44,10 +44,20 @@
 			text-align: center;
 		}
 		</style>
+   
+   <script type="text/javascript">
+			document.addEventListener('DOMContentLoaded', function()
+			{
+				readCookie();
+			}, false);
+		</script>
+   
 	</head>
-
-	<body style="background-color: silver;">  <!-- actually what user sees -->
-
+  
+	<body style="background-color: silver;" onload = "setID()">  <!-- actually what user sees -->
+    
+    
+    
 		<h1 class="text-center">Beautiful Day Contact App</h1>
 		<div class="container vertical-center">
 
@@ -65,8 +75,9 @@
 			<input type="text" id="firstName" placeholder="First Name" /><br/>
 			<input type="text" id="lastName" placeholder="Last Name"/><br />
 			<input type="text" id="phoneNum" placeholder="Phone Number"/><br />
-			<button type="button" id="updateContactButton" class="buttons" onclick="updateContact();"> Update </button>
-			<button type="button" id="deleteContactButton" class="buttons" onclick="deleteContact();"> Delete </button>
+      <input type="hidden" id="contactID">
+			<button type="button" id="updateContactButton" class="buttons" onclick="updateAllFields();"> Update Contact </button> 
+      <button type="button" id="deleteContactButton" class="buttons" onclick="deleteContact();"> Delete </button> <br />
 			<span id="contactUpdateResult"></span>
 		</div>
 

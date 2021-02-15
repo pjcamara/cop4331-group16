@@ -3,8 +3,8 @@
 	
 	$phonenumber = $inData["phonenumber"];
 	$userid = $inData["userid"];
-	$confirstname = $inData["confirstname"];
-	$conlastname = $inData["conlastname"];
+	$confirstname = ' ' . $inData["confirstname"];
+	$conlastname = ' ' . $inData["conlastname"] . ' ';
 	
 	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "COP4331");
 
@@ -15,7 +15,7 @@
 	else
 	{
 		
-		{
+		
 			$sql = "UPDATE Contacts SET PhoneNumber = '$phonenumber' WHERE ID = $userid";
 		
 		

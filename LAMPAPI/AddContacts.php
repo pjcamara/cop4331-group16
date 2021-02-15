@@ -2,7 +2,7 @@
 	$inData = getRequestInfo();
 
 	$FirstName = ' ' . $inData["FirstName"];
-	$LastName = $inData["LastName"];
+	$LastName = $inData["LastName"] . ' ';
 	$PhoneNumber = $inData["PhoneNumber"];
 	$UserID = $inData["UserID"];
 
@@ -15,7 +15,7 @@
 	else
 	{
 
-		$sql = "INSERT INTO Contacts (FirstName, LastName, PhoneNumber, UserID) VALUES ('" . $FirstName . "',' " . $LastName . "',  -  '" . $PhoneNumber . "','" . $UserID . "')";
+		$sql = "INSERT INTO Contacts (FirstName, LastName, PhoneNumber, UserID) VALUES ('" . $FirstName . "',' " . $LastName . "',    '" . $PhoneNumber . "','" . $UserID . "')";
     
 
 		if( $result = $conn->query($sql) != TRUE )

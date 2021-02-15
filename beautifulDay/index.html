@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+    <title>Bootstrap test</title>
+
+    <meta charset="utf-8"> <!-- charset attribute specifies the character encoding for the HTML document. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- gives browser instructions on how to control the page's dimensions and scaling. -->
+    <link rel="stylesheet" href="css/bootstrap.css"> <!-- import bootstrap stylesheet-->
+
+    <style>
+
+      [class*="container"] /* container settings */
+      {
+        padding: 1rem; /* inner margins */
+        background-color: #d3d3d3; /* gray */
+        border: 2px solid #000; /* black */
+        color: #ff0000; /* text color red*/
+        text-align: center;
+      }
+      [class*="col"] /* column settings */
+      {
+        padding: 1rem;
+        background-color: #33b5e5; /* teal */
+        border: 2px solid #fff; /* white */
+        color: #ff00df; /* text color pink*/
+        text-align: center;
+      }
+      [class*="row"] /* row settings */
+      {
+        padding: 1rem;
+        background-color: #09734b;  /* green */
+        border: 4px solid #c9ab00; /* gold */
+        color: #fff; /* text color white*/
+        text-align: center;
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+    <h1>Hello there</h1>
+
+
+    <div class="container"> <!-- red text gray background -->
+
+      <h3>Buttons</h3>
+      <button type="button" class="btn btn-primary">Blue</button>
+      <button type="button" class="btn btn-secondary">Gray</button>
+      <button type="button" class="btn btn-success">Green</button>
+      <button type="button" class="btn btn-danger">Red</button>
+      <button type="button" class="btn btn-warning">Yellow</button>
+      <button type="button" class="btn btn-info">Teal</button>
+      <button type="button" class="btn btn-light">White</button>
+      <button type="button" class="btn btn-dark">Black</button>
+      <button type="button" class="btn btn-link">Link</button>
+
+      <br><br>
+      <!-- transparent button with outline / hover over color -->
+      <button type="button" class="btn btn-outline-primary">Blue Outline</button>
+      <button type="button" class="btn btn-outline-secondary">Gray Outline</button>
+      <button type="button" class="btn btn-outline-success">Green Outline</button>
+      <button type="button" class="btn btn-outline-danger">Red Outline</button>
+      <button type="button" class="btn btn-outline-warning">Yellow Outline</button>
+      <button type="button" class="btn btn-outline-info">Teal Outline</button>
+      <button type="button" class="btn btn-outline-light">White Outline</button>
+      <button type="button" class="btn btn-outline-dark">Black Outline</button>
+
+      <br><br>
+      <!-- change size of button -->
+      <button type="button" class="btn btn-outline-primary btn-lg">large</button>
+      <button type="button" class="btn btn-outline-secondary btn-md">medium</button>
+      <button type="button" class="btn btn-outline-success btn-sm">small</button>
+      <button type="button" class="btn btn-outline-danger btn">normal</button>
+      <button type="button" class="btn btn-outline-warning btn-md">medium</button>
+      <button type="button" class="btn btn-outline-info btn-lg">large</button>
+      <button type="button" class="btn btn-outline-light btn">normal</button>
+      <button type="button" class="btn btn-outline-dark btn-md" disabled>disabled</button>
+
+      <hr>
+
+      <h3>Cards</h3>
+      <p>Card size controlled by styles</p>
+      <div class="card">
+        <div class="card-body bg-dark">
+          Did you ever hear the Tragedy of Darth Plagueis the wise? I thought not.
+          It's not a story the Jedi would tell you. It's a Sith legend.
+          Darth Plagueis was a Dark Lord of the Sith,
+          so powerful and so wise he could use the Force to influence the midichlorians to create life.
+          He had such a knowledge of the dark side that he could even keep the ones he cared about from dying.
+          The dark side of the Force is a pathway to many abilities some consider to be unnatural.
+          He became so powerful, the only thing he was afraid of was losing his power,
+          which eventually, of course, he did. Unfortunately, he taught his apprentice everything he knew,
+          then his apprentice killed him in his sleep. It's ironic he could save others from death, but not himself.
+        </div>
+      </div> <!-- end class card -->
+
+      <div class="row">
+        <div class="col-sm-8">
+          <p>Card size controlled by bootstrap grid</p>
+          <div class="card">
+            <div class="card-body bg-dark">
+              Did you ever hear the Tragedy of Darth Plagueis the wise? I thought not.
+              It's not a story the Jedi would tell you. It's a Sith legend.
+              Darth Plagueis was a Dark Lord of the Sith,
+              so powerful and so wise he could use the Force to influence the midichlorians to create life.
+              He had such a knowledge of the dark side that he could even keep the ones he cared about from dying.
+              The dark side of the Force is a pathway to many abilities some consider to be unnatural.
+              He became so powerful, the only thing he was afraid of was losing his power,
+              which eventually, of course, he did. Unfortunately, he taught his apprentice everything he knew,
+              then his apprentice killed him in his sleep. It's ironic he could save others from death, but not himself.
+            </div>
+          </div>
+        </div>
+      </div> <!-- end row -->
+
+      <div class="card mt-3" style="width: 18rem"> <!-- mt-3 is margin top 3 rems -->
+        <img class="card-img-top" src="/Users/Tyler/Desktop/LampProject/images/HelloThere.jpeg">
+        <div class="card-body bg-dark">
+          <h5 class="card-title">General Kenobi</h5>
+          <p class="card-text">You are a bold one</p>
+        </div>
+      </div>
+
+      <div class="card my-3" style="width: 18rem">
+        <div class="card-header bg-secondary">
+          The Senate will decide your fate
+        </div>
+        <div class="card-body bg-dark">
+          <h5 class="card-title">I am the Senate</h5>
+          <p class="card-text">Not yet</p>
+          <a href="#" class="btn btn-danger">AaaRrrggggHHHh</a>
+        </div>
+      </div>
+
+      <h1>Containers / columns / rows</h>
+      <!-- container -->
+      <!-- allows to center elements on the page -->
+      <div class="container-md">
+      <!-- container-fluid: uses full width (no margins) -->
+      <!-- container-md: has margins until breakpoint medium-->
+        <div class="row">
+          <div class="col-sm">1</div> <!-- 3 rows within container -->
+          <div class="col-sm">2</div>
+          <div class="col-sm">3</div>
+        </div>
+        <div class="row">
+          <div class="col-sm">1</div> <!-- 2 rows within container -->
+          <div class="col-sm">2</div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">Main content</div>
+          <div class="col-md-4">Sidebar</div>
+        </div>
+      </div>
+
+      <h2>Gutters</h2>
+      <div class="container px-4">
+        <div class="row gx-4"> <!-- x axis -->
+          <div class="col">
+            <div class="p-1 border ">Custom column padding 1</div>
+          </div>
+          <div class="col">
+            <div class="p-4 border ">Custom column padding 2</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row gy-2"> <!-- y axis inbetween each row-->
+          <div class="col-6">01</div>
+          <div class="col-2">02</div>
+          <div class="col-6">03</div>
+          <div class="col-1">04</div>
+        </div>
+      </div>
+
+      <br>
+      <hr>
+      <h1>Typography</h1>
+      <h1 class="display-1">Display 1</h1>
+      <p>You can mark <mark>highlight</mark> text</p>
+      <p>You can delete <del>this part of the text</del></p>
+      <p>you can s <s>as no longer accurate</s></p>
+      <p>you can add <ins>insert text</ins></p>
+      <p>you can <u>underline text</u></p>
+      <p>you can make <small>smaller fine print text</small></p>
+      <p>you can <strong>bold text</strong></p>
+      <p>you can <em>italicize text</em></p>
+
+
+      <div style="width: 30%; border: 10px solid red;">
+        <img src="/Users/Tyler/Desktop/LampProject/images/HelloThere.jpeg">
+      </div>
+      <br>
+
+      <div style="width: 30%; border: 10px solid blue;">
+        <img class="img-fluid rounded" src="/Users/Tyler/Desktop/LampProject/images/HelloThere.jpeg">
+      </div> <!-- fixes issue when resizing page to keep border same -->
+      <br>
+
+      <div style="width: auto; margin: auto; border: 5px solid green;">
+        <p class="mt-xl-3">Theres always a bigger fish (it makes margin show on xl screen)</p>
+        <p>Now this is podracing</p>
+      </div>
+
+      <h1 class="text-center">TABLES</h1>
+      <table class="table table-dark table-hover table-bordered table-sm table-responsive-sm"> <!-- can also do "table-striped" -->
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+            <th scope="col">Alive?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="table-primary">
+            <th scope="row">1</th>
+            <td>Obi-wan</td>
+            <td>Kenobi</td>
+            <td>@HelloThere</td>
+            <td class="table-danger">NO</td>
+          </tr>
+          <tr class="table-danger">
+            <th scope="row">2</th>
+            <td>Anakin</td>
+            <td>Skywalker</td>
+            <td>@darthVader</td>
+            <td class="table-danger">NO</td>
+          </tr>
+          <tr class="table-success">
+            <th scope="row">3</th>
+            <td>Baby</td>
+            <td>Yoda</td>
+            <td class="table-secondary">@MandoBaby</td>
+            <td class="table-success">YES</td>
+          </tr>
+          <tr class="table-primary">
+            <th scope="row">4</th>
+            <td>Ashoka</td>
+            <td>Tano</td>
+            <td>@Ashoka</td>
+            <td class="table-success">YES</td>
+          </tr>
+        </tbody>
+      </table>
+
+-----
+    </div>
+
+    <br>
+    <hr>
+    <h1>Lists</h1>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <ul>
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+        <ul>
+          <li>9</li>
+          <li>8</li>
+          <li>7</li>
+        </ul>
+      </ul>
+    </ul>
+
+    <p>Inline</p>
+
+    <ul class="list-inline">
+      <li class="list-inline-item">Item 1</li>
+      <li class="list-inline-item">Item 2</li>
+      <li class="list-inline-item">Item 3</li>
+    </ul>
+
+    <br>
+    <hr>
+    <h1 class="text-center">ALERTS / TOASTS</h1>
+    <div class="alert alert-danger" role="alert">
+      WARNING!
+    </div>
+    <!-- import popper and js -->
+    <script src="https://unpkg.com/@popperjs/core@2.4.0/dist/umd/popper.min.js"></script>
+    <script src="js/bootstrap/js"></script>
+
+
+</html>

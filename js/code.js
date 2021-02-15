@@ -145,6 +145,7 @@ function searchContact()
 
 	var jsonPayload = '{"Search" : "' + srch + '","UserID" : ' + userId + '}';
 	var url = urlBase + '/SearchContacts.' + extension;
+  
 
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -156,7 +157,7 @@ function searchContact()
 			if (this.readyState == 4 && this.status == 200) 
 			{
 				//document.getElementById("contactSearchResult").innerHTML = "Contact(s) has been retrieved";
-
+        
 				var jsonObject = JSON.parse( xhr.responseText );
 				console.log(jsonObject); //added console log 
         console.log(jsonObject.results); // added console log
@@ -167,6 +168,7 @@ function searchContact()
 					if( i < jsonObject.results.length - 1 )
 					{
 						contactList += "<br />\r\n";
+                                       
 					}
 				}
 
@@ -186,9 +188,10 @@ function deleteContact()
 {
 	var fName = document.getElementById("firstName").value;
 	var lName = document.getElementById("lastName").value;
+  var contID = document.getElementById("contactID").innerHTML;
 
-	var jsonPayload = '{"FirstName" : "' + newFName + '" , "LastName" : "' + 
-	newLName + '" , "UserID" : ' + userId + '}';
+	var jsonPayload = '{"FirstName" : "' + fName + '" , "LastName" : "' + 
+	lName + '" , "UserID" : ' + contID + '}';
 	var url = urlBase + '/DeleteContacts.' + extension;
 
 	var xhr = new XMLHttpRequest();
@@ -201,7 +204,7 @@ function deleteContact()
 		{
 			if (this.readyState == 4 && this.status == 200) 
 			{
-				document.getElementById("contactDeleteResult").innerHTML = "Contact has been deleted";
+				document.getElementById("contactUpdateResult").innerHTML = "Contact has been deleted";
 			}
 		};
 		xhr.send(jsonPayload);
@@ -218,9 +221,11 @@ function updateContact()
 	var phoneNum = document.getElementById("phoneNum").value;
 	var newFName = document.getElementById("firstName").value;
 	var newLName = document.getElementById("lastName").value;
+  var contID = document.getElementById("contactID").innerHTML;
+   
 
-	var jsonPayload = '{"FirstName" : "' + newFName + '" , "LastName" : "' + 
-	newLName + '" , "PhoneNumber" : "' + phoneNum + '" , "UserID" : ' + userId + '}';
+	var jsonPayload = '{"confirstname" : "' + newFName + '" , "conlastname" : "' + 
+	newLName + '" , "phonenumber" : "' + phoneNum + '" , "userid" : ' + contID + '}';
 	var url = urlBase + '/UpdateContacts.' + extension;
 
 	var xhr = new XMLHttpRequest();
@@ -236,12 +241,92 @@ function updateContact()
 				document.getElementById("contactUpdateResult").innerHTML = "Contact has been updated";
 			}
 		};
+    console.log(jsonPayload);//added console log
 		xhr.send(jsonPayload);
 	}
 	catch(err)
 	{
 		document.getElementById("contactUpdateResult").innerHTML = err.message;
 	}
+}
+
+function updateAllFields()
+{
+  var phoneNum = document.getElementById("phoneNum").value;
+	var newFName = document.getElementById("firstName").value;
+	var newLName = document.getElementById("lastName").value;
+  var contID = document.getElementById("contactID").innerHTML;
+  
+  var jsonPayload = '{"confirstname" : "' + newFName + '" , "conlastname" : "' + 
+	newLName + '" , "phonenumber" : "' + phoneNum + '" , "userid" : ' + contID + '}';
+ 
+ var url1 = urlBase + '/UpdateFirst.' + extension;
+ var url2 = urlBase + '/UpdateLast.' + extension;
+ var url3 = urlBase + '/UpdatePhone.' + extension;
+ 
+  var xhr1 = new XMLHttpRequest();
+	xhr1.open("POST", url1, true);
+	xhr1.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+ 
+ var xhr2 = new XMLHttpRequest();
+	xhr2.open("POST", url2, true);
+	xhr2.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+ 
+ var xhr3 = new XMLHttpRequest();
+	xhr3.open("POST", url3, true);
+	xhr3.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
+  try
+	{
+		xhr1.onreadystatechange = function() 
+		{
+			if (this.readyState == 4 && this.status == 200) 
+			{
+				document.getElementById("contactUpdateResult").innerHTML = "Contact has been updated";
+			}
+		};
+    console.log(jsonPayload);//added console log
+		xhr1.send(jsonPayload);
+	}
+	catch(err)
+	{
+		document.getElementById("contactUpdateResult").innerHTML = err.message;
+	}
+ 
+ try
+	{
+		xhr2.onreadystatechange = function() 
+		{
+			if (this.readyState == 4 && this.status == 200) 
+			{
+				document.getElementById("contactUpdateResult").innerHTML = "Contact has been updated";
+			}
+		};
+    console.log(jsonPayload);//added console log
+		xhr2.send(jsonPayload);
+	}
+	catch(err)
+	{
+		document.getElementById("contactUpdateResult").innerHTML = err.message;
+	}
+ 
+ try
+	{
+		xhr3.onreadystatechange = function() 
+		{
+			if (this.readyState == 4 && this.status == 200) 
+			{
+				document.getElementById("contactUpdateResult").innerHTML = "Contact has been updated";
+			}
+		};
+    console.log(jsonPayload);//added console log
+		xhr3.send(jsonPayload);
+	}
+	catch(err)
+	{
+		document.getElementById("contactUpdateResult").innerHTML = err.message;
+	}
+
 }
 
 function doRegister()
@@ -276,4 +361,23 @@ function doRegister()
 	{
 		document.getElementById("registerResult").innerHTML = err.message;
 	}
+}
+function moveToUpdate()
+{
+  var id = document.getElementById('contactID').value,
+        url = 'http://beautiful-day.tech/updateContact.html?contactID=' + encodeURIComponent(id);
+
+    document.location.href = url;
+}
+function setID() 
+{
+    var url = document.location.href,
+        params = url.split('?')[1].split('&'),
+        data = {}, tmp;
+    for (var i = 0, l = params.length; i < l; i++) 
+    {
+         tmp = params[i].split('=');
+         data[tmp[0]] = tmp[1];
+    }
+    document.getElementById('contactID').innerHTML = data.contactID;
 }

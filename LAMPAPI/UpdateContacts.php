@@ -3,9 +3,10 @@
 	
 	$phonenumber = $inData["phonenumber"];
 	$userid = $inData["userid"];
-	$confirstname = $inData["confirstname"];
-	$conlastname = $inData["conlastname"];
+	$confirstname = ' ' . $inData["confirstname"];
+	$conlastname = ' ' . $inData["conlastname"];
 	
+ 
 	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "COP4331");
 
 	if ($conn->connect_error) 
@@ -18,11 +19,11 @@
 		{
 			$sql = "UPDATE Contacts SET PhoneNumber = '$phonenumber' WHERE ID = $userid";
 		}
-		else if($confirstname)
+	  else if($confirstname)
 		{
 			$sql = "UPDATE Contacts SET firstName= '$confirstname' WHERE ID= $userid";
 		}
-		else if($conlastname)
+  	else if($conlastname)
 		{
 			$sql = "UPDATE Contacts SET lastName= '$conlastname' WHERE ID= $userid";
 		}
