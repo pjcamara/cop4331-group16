@@ -155,21 +155,22 @@ function searchContact()
 		{
 			if (this.readyState == 4 && this.status == 200) 
 			{
-				document.getElementById("contactSearchResult").innerHTML = "Contact(s) has been retrieved";
+				//document.getElementById("contactSearchResult").innerHTML = "Contact(s) has been retrieved";
+
 				var jsonObject = JSON.parse( xhr.responseText );
-				
+				console.log(jsonObject); //added console log 
+        console.log(jsonObject.results); // added console log
 				for( var i=0; i<jsonObject.results.length; i++ )
 				{
 					contactList += jsonObject.results[i];
+          console.log(contactList); //added console log
 					if( i < jsonObject.results.length - 1 )
 					{
 						contactList += "<br />\r\n";
 					}
 				}
-				
-				document.getElementsByTagName("p")[0].innerHTML = contactList;
-				
-				
+
+				document.getElementsByTagName("p")[0].innerHTML = contactList;		
 			}
 		};
 		xhr.send(jsonPayload);
