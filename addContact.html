@@ -44,6 +44,12 @@
 			text-align: center;
 		}
 		</style>
+   <script type="text/javascript">
+			document.addEventListener('DOMContentLoaded', function()
+			{
+				readCookie();
+			}, false);
+		</script>
 	</head>
 
 	<body style="background-color: silver;">  <!-- actually what user sees -->
@@ -62,10 +68,10 @@
 
 
 			<h1 class="text-center">Add Contact</h1>
-			<input type="text" id="firstName" placeholder="First Name" /><br/>
-			<input type="text" id="lastName" placeholder="Last Name"/><br />
-			<input type="text" id="phoneNum" placeholder="Phone Number"/><br />
-			<button type="button" id="addContactButton" class="buttons" onclick="addContact();"> Add Contact </button>
+			<input type="text" id="firstName" placeholder="First Name">
+		  <input type="text" id="lastName" placeholder="Last Name">
+		  <input type="text" id="phoneNum" placeholder="Phone Number">
+			<button type="button" id="addContactButton" class="buttons" onclick="addContact();"> Add Contact </button> <br />
 			<span id="contactAddResult"></span>
 		</div>
 
